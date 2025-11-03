@@ -4,11 +4,6 @@ services:
         autowire: true
         autoconfigure: true
 
-    Alcedo\Bundle\JsonRpcServerBundle\Service\EchoService:
-        public: true
-        tags:
-            - { name: 'json_rpc.procedure', procedure_name: 'test.echo' }
-
     Alcedo\JsonRpc\Server\Server:
         factory: '@Alcedo\Bundle\JsonRpcServerBundle\Factory\ServerFactory'
 
