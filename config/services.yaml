@@ -6,3 +6,6 @@ services:
 
     Alcedo\JsonRpc\Server\Server:
         factory: '@Alcedo\Bundle\JsonRpcServerBundle\Factory\ServerFactory'
+
+    Alcedo\Bundle\JsonRpcServerBundle\Factory\ServerFactory:
+        arguments: [!tagged_locator { tag: 'json_rpc.procedure', index_by: 'procedure_name' }]
