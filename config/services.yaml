@@ -1,0 +1,8 @@
+services:
+    Alcedo\Bundle\JsonRpcServerBundle\:
+        resource: '../src/'
+        autowire: true
+        autoconfigure: true
+
+    Alcedo\JsonRpc\Server\Server:
+        factory: '@Alcedo\Bundle\JsonRpcServerBundle\Factory\ServerFactory'
