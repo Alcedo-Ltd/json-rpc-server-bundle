@@ -22,9 +22,6 @@ class JsonRpcServerController extends AbstractController
             $result = $server->executeArrayRequest($content);
         } catch (\JsonException $exception) {
             $result = new JsonRpcResponse(error: ErrorFactory::invalidRequest(message: $exception->getMessage()));
-        } catch (\Throwable $exception) {
-            $error = new Error(ErrorCodes::INTERNAL_ERROR->value, $exception->getMessage());
-            $result = new JsonRpcResponse(error: $error);
         }
 
         if ($result !== null) {
