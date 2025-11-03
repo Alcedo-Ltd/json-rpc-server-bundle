@@ -27,6 +27,10 @@ class JsonRpcServerController extends AbstractController
             $result = new JsonRpcResponse(error: $error);
         }
 
-        return $this->json(json_encode($result));
+        if ($result !== null) {
+            return $this->json($result);
+        }
+
+        return new Response(status: Response::HTTP_NO_CONTENT);
     }
 }
